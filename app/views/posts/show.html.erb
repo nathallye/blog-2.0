@@ -1,24 +1,67 @@
-<p id="notice"><%= notice %></p>
+<style>
+  .linha-titulo-post {
+    padding-top: 20px;
+  }
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+  .linha-conteudo-post {
+    padding-top: 10px;
+  }
 
-<p>
-  <strong>Author:</strong>
-  <%= @post.author %>
-</p>
+</style>
 
-<p>
-  <strong>Body:</strong>
-  <%= @post.body %>
-</p>
 
-<p>
-  <strong>Tag:</strong>
-  <%= @post.tag.description %>
-</p>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<div class="container">
+
+  <hr>
+
+  <div class="row linha-post">
+    <div class="col">
+
+      <div class="row text-center linha-titulo-post">
+        <div class="col">
+          <h2>
+            <%= @post.title %>
+          </h2>
+        </div>
+      </div>
+
+      <div class="row linha-tag-post">
+        <div class="col">
+          <span class="badge badge-info">
+            <%= @post.tag.description %>
+          </span>
+        </div>
+      </div>
+
+      <div class="row text-muted linha-autor-post">
+        <div class="col">
+          <strong> Por <%= @post.author %> </strong>
+        </div>
+      </div>
+
+      <div class="row text-muted linha-data-criacao-post">
+        <div class="col">
+          <%= I18n.l(@post.created_at, format: :long) %>
+        </div>
+      </div>
+
+      <div class="row linha-conteudo-post">
+        <div class="col">
+          <%= @post.body.gsub("\n", "<br>").html_safe %>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="row linha-botoes-editar-e-voltar">
+        <div class="col">
+          <%= link_to 'Editar', edit_post_path(@post) %> |
+          <%= link_to 'Voltar', posts_path %>
+        </div>
+      </div>
+
+    </div>
+  </div> <!-- Fechamento da div row linha-post-->
+
+</div> <!-- Fechamento da div container-->
