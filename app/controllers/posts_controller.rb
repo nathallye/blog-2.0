@@ -6,6 +6,9 @@ class PostsController < ApplicationController
     @tags = Tag.all #.all = todos 
     @posts = Post.all #.all = todos
     @last_post = Post.last
+    @posts_for_cards = Post.where.not(id: @last_post.id)
+    @post_card1 = @posts_for_cards.sample # .sample = Para acessar um elemento aleatório do array
+    @post_card2 = @posts_for_cards.sample
   end 
   
   def index

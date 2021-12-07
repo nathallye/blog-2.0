@@ -1,0 +1,42 @@
+<div class="row">
+
+  <div class="col coluna-conteudo-card">
+    <div class="row linha-tag-post-card">
+      <div class="col">
+        <%= card.tag.description %> <!--
+        * card = Pois cada partial tem uma variável local com o seu nome (partial _card.html.erb)
+        ex.: render(partial: "card", object: card)
+        * Aqui renderizamos na home a partial card(o arquivo _card.html.erb) e passamos como objeto a variável de instância criada no controller card -->
+      </div>
+    </div>
+
+    <div class="row linha-titulo-post-card">
+      <div class="col">
+        <%= card.title %>
+      </div>
+    </div>
+
+    <div class="row linha-data-criacao-post-card">
+      <div class="col">
+        <%= I18n.l(card.created_at, format: :short) %>
+      </div>
+    </div>
+
+    <div class="row linha-conteudo-post-card">
+      <div class="col">
+        <%= card.body.truncate(120) %>
+      </div>
+    </div>
+
+    <div class="row linha-link-post-card">
+      <div class="col">
+        <a href="<%= post_path(card) %>"> Continue reading...  </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col coluna-imagem-card">
+    <img class="card-img-top" src="" alt="Card image cap">
+  </div>
+
+</div>

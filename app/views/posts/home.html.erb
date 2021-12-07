@@ -1,17 +1,17 @@
 <style>
-  .linha-primeiro-post .row{
+  .linha-post-principal .row{
     padding-left: 15px;
     margin: 10px;
   }
 
   .linha-cards {
-    padding-top: 20px;
+    margin-top: 20px;
   }
 </style>
 
 <p id="notice"><%= notice %></p>
 
-<div class="container">
+<div class="container"> <!--Inicio da div container-->
 
   <div class="row">
     <% @tags.each do |tag| %>
@@ -23,9 +23,10 @@
     <% end %>
   </div>
 
-  <div class="row linha-primeiro-post">
+  <div class="row linha-post-principal">
     <div class="col bg-dark text-white">
-      <div class="row linha-titulo-post">
+
+      <div class="row linha-titulo-post-principal">
         <div class="col-6 py-2">
           <h2>
             <%= @last_post.title %>
@@ -33,36 +34,32 @@
         </div>
       </div>
 
-      <div class="row linha-conteúdo-post">
+      <div class="row linha-conteudo-post-principal">
         <div class="col-6">
           <%= @last_post.body.truncate(300) %>
         </div>
       </div>
 
-      <div class="row linha-link-post">
+      <div class="row linha-link-post-principal">
         <div class="col-6 py-2">
           <a style="color:white !important" href="<%=post_path(@last_post)%>"> Continue reading... </a>
         </div>
       </div>
+
     </div>
   </div>
 
   <div class="row linha-cards">
-    <div class="col-6 "> 
-      <div class="card" style="width: 18rem;">
-        <img class="card-img-right" src="..." alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
+
+    <div class="col-6 border border-dark">
+      <%= render(partial: "card", object: @post_card1) %>
     </div>
+
+    <div class="col-6 border border-dark">
+      <%= render(partial: "card", object: @post_card2) %>
+    </div>
+
   </div>
 
-
-
-</div> <!--Fechamento da div container-->
-
-
-
+</div>
+ <!--Fechamento da div container-->
