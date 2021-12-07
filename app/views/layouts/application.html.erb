@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog Tabaresu 2.0</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_pack_tag 'application', media: 'all' %>
+    <%= javascript_pack_tag 'application' %>
+  </head>
+
+  <body>
+  
+    <div class="p-4 mb-2 bg-info text-center">
+      <%= link_to root_path, class: "text-white" do %>
+        <h1 class="display-4"> 
+          Blog Tabaresu 2.0
+        </h1>
+      <% end %>
+
+    </div>
+
+    
+    <%= yield %>
+  </body>
+</html>
