@@ -1,3 +1,11 @@
+<style>
+  .linha-titulo-blog {
+    padding-top: 15px;
+  }
+
+</style>
+
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -11,17 +19,19 @@
   </head>
 
   <body>
-  
-    <div class="p-4 mb-2 bg-info text-center">
-      <%= link_to root_path, class: "text-white" do %>
-        <h1 class="display-4"> 
-          Blog Tabaresu 2.0
-        </h1>
-      <% end %>
 
+    <div class="row flex-nowrap text-center linha-titulo-blog">
+      <div class="col">
+        <%= link_to root_path, class: "text-dark" do %>
+          <h1 class="">
+            Blog Tabaresu 2.0
+          </h1>
+        <% end %>
+      </div>
     </div>
 
-    
+
+
     <%= yield %>
   </body>
 </html>

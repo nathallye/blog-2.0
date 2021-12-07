@@ -1,4 +1,12 @@
 <style>
+  .linha-tags {
+    padding-bottom: 15px;
+  }
+
+  .linha-tags a {
+    color: #6c757d !important;
+  }
+
   .linha-post-principal .row{
     padding-left: 15px;
     margin: 10px;
@@ -6,17 +14,28 @@
 
   .linha-cards {
     margin-top: 20px;
+    margin-bottom: 20px;
   }
+
+  .coluna-card {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
 </style>
 
 <p id="notice"><%= notice %></p>
 
+
+
 <div class="container"> <!--Inicio da div container-->
 
-  <div class="row">
+  <hr>
+
+  <div class="row linha-tags">
     <% @tags.each do |tag| %>
       <div class="col">
-        <div class="px-2 py-2">
+        <div class="">
           <a href="<%=posts_path(tag_id: tag.id)%>"> <%= tag.description %> </a>
         </div>
       </div>
@@ -51,15 +70,60 @@
 
   <div class="row linha-cards">
 
-    <div class="col-6 border border-dark">
+    <div class="col-6 coluna-card">
       <%= render(partial: "card", object: @post_card1) %>
     </div>
 
-    <div class="col-6 border border-dark">
+    <div class="col-6 coluna-card">
       <%= render(partial: "card", object: @post_card2) %>
     </div>
 
   </div>
 
+  <div class="row linha-amostra-postagem-e-apresentacao">
+    <div class="col-8">
+
+      <div class="row linha-titulo-amostra-postagem">
+        <div class="col">
+          <h3>
+            <%= @post_amostra.title %>
+          </h3>
+        </div>
+      </div>
+
+      <div class="row linha-data-criação-amostra-postagem">
+        <div class="col text-muted">
+          <%= I18n.l(@post_amostra.created_at, format: :short) %> by <%= @post_amostra.author %>
+        </div>
+      </div>
+
+      <div class="row linha-conteudo-amostra-postagem">
+        <div class="col">
+          <%= @post_amostra.body.truncate(300) %>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col bg-secondary">
+
+      <h4 class="text-center linha-nome-criador-blog">
+        Nathallye Tabaresu
+      </h4>
+
+      <div class="row">
+        <div class="col">
+          <h6 class="text-center">
+            Engenheira Civil, apaixonada  por  tecnologia.  Uma  de  minhas  habilidades  é  minha  rápida habituação com qualquer ambiente de trabalho.
+            Desde o final do ano passado estou estudando para migrar da minha área de formação para me tornar uma desenvolvedora de software.
+            Tenho facilidade para aprender novas tecnologias, e também costumo sempre me manter atualizada sobre todo o contexto profissional ao meu redor.
+          </h6>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
 </div>
- <!--Fechamento da div container-->
+<!--Fechamento da div container-->

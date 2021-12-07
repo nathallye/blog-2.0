@@ -9,6 +9,8 @@ class PostsController < ApplicationController
     @posts_for_cards = Post.where.not(id: @last_post.id)
     @post_card1 = @posts_for_cards.sample # .sample = Para acessar um elemento aleatório do array
     @post_card2 = @posts_for_cards.sample
+    @post_for_amostra = Post.where.not(id: @last_post.id)
+    @post_amostra = @post_for_amostra.sample
   end 
   
   def index
